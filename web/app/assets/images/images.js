@@ -1,13 +1,8 @@
 require("file?name=images/[name].png!./l.png");
-require("file?name=images/[name].jpg!./logo.jpg");
-require("file?name=images/[name].jpg!./logo@2x.jpg");
-require("file?name=images/[name].jpg!./logo@3x.jpg");
 require("file?name=images/[name].png!./logo_pp-lg.png");
 require("file?name=images/[name].png!./logo-login.png");
 require("file?name=images/[name].png!./logo_pp.png");
 require("file?name=images/[name].png!./logo_pp-2.png");
-require("file?name=images/[name].jpg!./logo-lg@2x.jpg");
-require("file?name=images/[name].jpg!./logo-lg@3x.jpg");
 require("file?name=images/option/[name].png!./option/option_asset.png");
 require("file?name=images/option/[name].png!./option/option_blockchain.png");
 require("file?name=images/option/[name].png!./option/option_voting.png");

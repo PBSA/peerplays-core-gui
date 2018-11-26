@@ -49,12 +49,6 @@ class HelpModal extends React.Component {
         this.props.toggleHelpModal(false);
     }
 
-    onClickNavigateToClaim(e) {
-        this.hideModal();
-        this.props.navigateToSettingsClaim();
-        e.preventDefault();
-    }
-
     scrollToHeaderByRefName(refName, e) {
         ReactDOM.findDOMNode(this.refs.modal).scrollTop = this.refs[refName].offsetTop;
         e.preventDefault();

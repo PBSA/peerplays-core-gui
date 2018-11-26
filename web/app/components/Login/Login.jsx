@@ -44,7 +44,6 @@ import Translate from "react-translate-component";
         setLoginStatus: LoginActions.setLoginStatus,
         navigateToSignUp: NavigateActions.navigateToSignUp,
         navigateToForgotPassword: NavigateActions.navigateToForgotPassword,
-        navigateToClaim: NavigateActions.navigateToClaim
     }
 )
 class Login extends React.Component {
@@ -65,12 +64,6 @@ class Login extends React.Component {
 
     }
 
-    navigateToBTSClaim(e) {
-
-        this.props.navigateToClaim('bts');
-        e.preventDefault();
-
-    }
 
     navigateToSignUp() {
         this.props.navigateToSignUp();
@@ -92,14 +85,9 @@ class Login extends React.Component {
                         <div className="dialog dialog-login">
                             <LanguageSwitcher />
                             <Logo />
-                            <Translate component="h1" className="h1" content="login.login_form_title" tm={<span className="tm">TM</span>} />
+                            <Translate component="h1" className="h1" content="login.login_form_title" />
 
-                            <div className="section__text">
-                                <Translate component="p" className="" content="login.note_1" />
-                                <Translate component="p" className="" content="login.note_2" />
-                                <Translate component="p" className="" content="login.note_3" />
-                                <Translate component="p" className="" content="login.note_4" />
-                            </div>
+                            
 
                             <div className="form">
                                 <LoginForm errors={this.props.errors} btnStatus={this.props.status}
@@ -111,12 +99,6 @@ class Login extends React.Component {
                                 <button className="btn btn-sign btn-fsz-18" onClick={this.navigateToSignUp.bind(this)}>
                                     <Translate className="btnText" content="auth.sign_up_btn" />
                                 </button>
-                                <div className="login__footerLinkWrap">
-                                    <a href="#claims/bts" onClick={this.navigateToBTSClaim.bind(this)} className="login__footerLink mark2"><Translate unsafe={true} className="" content="login.bts_sharedrop" /></a>
-                                </div>
-                                <div className="login__footerNoteWrap">
-                                    <Translate component="p" unsafe={true} className="login__footerNote" content="login.sharedrop_note" />
-                                </div>
                             </div>
                         </div>
                     </div>

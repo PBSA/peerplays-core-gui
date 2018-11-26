@@ -29,7 +29,7 @@
     "n_a": "N/A",
     "none": "NONE",
     "send": "Send",
-    "core_tokens": "Peerplays Core Tokens",
+    "core_tokens": "UNI Core Tokens",
     "digital_currencies": "Digital Currencies",
     "other_assets": "Other Assets",
     "balances": "Balances",
@@ -258,7 +258,7 @@
     "premium_name_warning": "This is a premium name which is more expensive than a name containing a dash (-) or a number."
   },
   "games": {
-    "title": "Peerplays Dapps",
+    "title": "UNI Dapps",
     "rps_game": {
       "name": "Rock, Paper, Scissors - Prototype",
       "game_id": "Game ID #",
@@ -446,7 +446,7 @@
     },
     "accounts": {
       "title": "Konten",
-      "explore_bitshares_accounts": "Entdecken Sie Peerplays Accounts",
+      "explore_bitshares_accounts": "Entdecken Sie UNI Accounts",
       "account_name": "Kontobezeichnung",
       "core_token_balance": "Kern-Token-Gleichgewicht",
       "percent_of_total_supply": "Prozent des Gesamtangebots",
@@ -554,11 +554,11 @@
     "claim": "Claim"
   },
   "about": {
-    "title": "Peerplays TEST Network",
+    "title": "UNI TEST Network",
     "note1": "This public TEST network is for demonstrations purposes only. It will be modified and changed often as additional features are added and tested.",
-    "note2": "A graphic interface, similar to that which is demonstrated on this TEST network, will  be made available upon the launch of the Peerplays blockchian as a downloadable desktop app.",
+    "note2": "A graphic interface, similar to that which is demonstrated on this TEST network, will  be made available upon the launch of the UNI blockchian as a downloadable desktop app.",
     "note3": "Here are some of the features you will find this TEST network:",
-    "library_link": "Peerplays Dapp Library",
+    "library_link": "UNI Dapp Library",
     "exchange_link": "Decentralized Asset Exchange",
     "balance_link": "Balance Overviews",
     "transfers_link": "Transfers",
@@ -616,7 +616,7 @@
     "logout_btn": "Logout"
   },
   "login": {
-    "login_form_title": "Willkommen bei Peerplays",
+    "login_form_title": "Willkommen bei UNI",
     "login_form_sign_up_label": "Don't have an account?",
     "login_form_forgot_btn_label": "Forgot your password?",
     "login_form_login_account_placeholder": "Account Name",
@@ -627,38 +627,38 @@
     "create_now": "Jetzt erstellen!",
     "backup_recovery": "Kontosicherung und Wiederherstellung",
     "login_backup_text": {
-      "line1": "Peerplays basiert auf einer dezentralen Blockchain, sodass niemand ohne Ihre Erlaubnis auf Ihr Konto zugreifen kann. Dies bedeutet, dass Sie Ihre eigene Backup-Wiederherstellungsdatei behalten müssen.",
+      "line1": "UNI basiert auf einer dezentralen Blockchain, sodass niemand ohne Ihre Erlaubnis auf Ihr Konto zugreifen kann. Dies bedeutet, dass Sie Ihre eigene Backup-Wiederherstellungsdatei behalten müssen.",
       "line2": "Wenn Sie Ihr Kennwort vergessen oder wenn Ihr Computer abstürzt, ist die einzige Möglichkeit, den Zugriff auf Ihr Konto wiederherzustellen, mit Ihrer Sicherungsdatei. Um diese Datei zu erstellen, schreiben Sie bitte 3 Sicherheitsfragen und beantworten Sie diese.",
       "line3": "Wenn Sie einige Vorschläge für Sicherheitsfragen benötigen, finden Sie Beispiele",
       "here": "Hier"
     },
-    "bts_sharedrop": "PEERPLAYS UIA & <br/> BTS Sharedrop <br/> Balance Claims",
-    "note_1": "Copyright (c) 2017, Peerplays Blockchain Standards Association",
+    "bts_sharedrop": "UNI UIA & <br/> BTS Sharedrop <br/> Balance Claims",
+    "note_1": "Copyright (c) 2017, UNI Blockchain Standards Association",
     "note_2": "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:",
     "note_3": "The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.",
     "note_4": "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
     "sharedrop_note": "For all other PPY balance claims, <br/> Sign up and then go to Settings/Balance Claims"
   },
   "login_bts": {
-    "login_form_title": "Welcome to Peerplays",
+    "login_form_title": "Welcome to UNI",
     "login_btn": "Login and claim",
     "login_form_sign_up_label": "Don't have an account?",
     "login_key_placeholder": "Paste you BitShares private key",
-    "title": "PEERPLAYS UIA and BTS Sharedrop Balance Claims",
-    "note_title_1": "PEERPLAYS UIA HOLDERS:",
-    "note_1": "If you held PEERPLAYS UIA tokens in your BitShares wallet on or after 4:00 UTC on December 26, 2016, enter your BitShares private owner key below to claim your PPY balance.",
+    "title": "UNI UIA and BTS Sharedrop Balance Claims",
+    "note_title_1": "UNI UIA HOLDERS:",
+    "note_1": "If you held UNI UIA tokens in your BitShares wallet on or after 4:00 UTC on December 26, 2016, enter your BitShares private owner key below to claim your PPY balance.",
     "note_title_2": "BTS SHAREDROP:",
     "note_2": "If you held BTS tokens in your BitShares wallet on September 2, 2016 at 16:37 UTC (BitShares block number 9,291,600), enter your BitShares private owner key below to claim your PPY balance.",
     "note_title_3": "OTHER REDEMPTIONS:",
     "note_3": "For all other PPY token redemptions, please “sign up” below, and then go to settings/balance claims and enter your redemption key."
   },
   "sign_up": {
-    "welcome": "Welcome to Peerplays",
+    "welcome": "Welcome to UNI",
     "please_create": "Please create your new account:",
     "note1": "If you lose your password, you will lose all of your funds!",
     "note2": "Keep Your Password safe!",
     "note3": "To download a text file of your password, click the link below:",
-    "pseudoText1": "I understand that Peerplays cannot recover lost passwords",
+    "pseudoText1": "I understand that UNI cannot recover lost passwords",
     "pseudoText2": "I have securely saved my generated password",
     "create_btn": "Create account",
     "download_btn": "Download recovery file",
@@ -708,11 +708,11 @@
   },
   "help": {
     "title": "Help",
-    "title_welcome": "Welcome to Peerplays Core",
+    "title_welcome": "Welcome to UNI Core",
     "important_title": "IMPORTANT:",
     "important_note": "PLEASE REMEMBER TO SECURELY STORE YOUR WALLET PASSWORD. IF YOU LOSE YOUR PASSWORD, YOU WILL LOSE ACCESS TO YOUR WALLET AND FUNDS PERMANENTLY.",
-    "introduce_note": "You can log out of the Peerplays Core wallet by going to My Funds and clicking on your Account Name at the top right side of the screen.",
-    "introduce_note": "You can log out of the Peerplays Core wallet by going to My Funds and clicking on your Account Name at the top right side of the screen.",
+    "introduce_note": "You can log out of the UNI Core wallet by going to My Funds and clicking on your Account Name at the top right side of the screen.",
+    "introduce_note": "You can log out of the UNI Core wallet by going to My Funds and clicking on your Account Name at the top right side of the screen.",
     "anchors": {
       "my_funds": "MY FUNDS",
       "play": "PLAY",
@@ -724,17 +724,17 @@
     },
     "my_funds": {
       "title": "My Funds",
-      "note_1": "This is the main dashboard of the Peerplays Core wallet.",
+      "note_1": "This is the main dashboard of the UNI Core wallet.",
       "balances": {
         "header": "Balances",
-        "text_1": "This is where you can view your digital assets in your Peerplays wallet. These assets are broken into three categories:",
-        "text_2": "PPY tokens - the core token of Peerplays",
+        "text_1": "This is where you can view your digital assets in your UNI wallet. These assets are broken into three categories:",
+        "text_2": "PPY tokens - the core token of UNI",
         "text_3": "Digital Currencies (e.g. Bitcoin) ",
         "text_4": "Other Assets - User-Issued Asset tokens and gateway tokens"
       },
       "recent_activity": {
         "header": "Recent Activity",
-        "text_1": "This data feed shows the latest transactions you have made with your Peerplays account, including sending funds, receiving funds, and voting for witnesses."
+        "text_1": "This data feed shows the latest transactions you have made with your UNI account, including sending funds, receiving funds, and voting for witnesses."
       },
       "send": {
         "header": "Send",
@@ -744,31 +744,31 @@
         "header": "Overview Panel",
         "text_1": "On the right-hand side of the My Funds page, you will find an overview of your Available Balances and Vesting Balances.",
         "text_2": "Please note: Vesting Balances (and the Claim Balances button) is only for use by Witness Node operators to claim their Witness pay.",
-        "text_3": "The top of the overview panel shows your Peerplays Wallet Account Name. You can click on this name to Logout of your wallet - but always make sure you have your username and password securely stored before logging out!"
+        "text_3": "The top of the overview panel shows your UNI Wallet Account Name. You can click on this name to Logout of your wallet - but always make sure you have your username and password securely stored before logging out!"
       }
     },
     "play": {
       "title": "PLAY",
-      "text_1": "The Play page will link to the various Peerplays Dapps (Decentralized apps) as they become available."
+      "text_1": "The Play page will link to the various UNI Dapps (Decentralized apps) as they become available."
     },
     "vote": {
       "title": "VOTE",
       "note_1": "If you hold PPY tokens, then here is where you can vote for Witnesses and Advisors, or set a Proxy account to vote for you.",
       "proxy": {
         "header": "Proxy",
-        "text_1": "You can utilize the Proxy function to copy the voting patterns of another Peerplays account. The Proxy function is ideal for those PPY holders who wish to be involved in governance of the Peerplays blockchain but would rather step back from day-to-day decision-making and put the voting power of their PPY tokens behind a trusted proxy voter. This trusted voter cannot access or move your funds, but instead your account will simply match their voting patterns.",
-        "text_2": "To set a Proxy you should enter the Peerplays Account Name of that user, and select “set proxy”. Your account will then automatically begin to vote for the same witnesses and advisors as the proxy account.",
+        "text_1": "You can utilize the Proxy function to copy the voting patterns of another UNI account. The Proxy function is ideal for those PPY holders who wish to be involved in governance of the UNI blockchain but would rather step back from day-to-day decision-making and put the voting power of their PPY tokens behind a trusted proxy voter. This trusted voter cannot access or move your funds, but instead your account will simply match their voting patterns.",
+        "text_2": "To set a Proxy you should enter the UNI Account Name of that user, and select “set proxy”. Your account will then automatically begin to vote for the same witnesses and advisors as the proxy account.",
         "text_3": "You can also remove the proxy at any time. Removing the proxy will enable you to resume voting for individual witnesses and advisors."
       },
       "witness": {
         "header": "Witness",
-        "text_1": "This is where you vote for Peerplays Witnesses. Witnesses maintain the Peerplays blockchain by Bundling transactions into blocks and verifying the validity of transactions.",
+        "text_1": "This is where you vote for UNI Witnesses. Witnesses maintain the UNI blockchain by Bundling transactions into blocks and verifying the validity of transactions.",
         "li_1": "To vote for a Witness, click the <b>ADD</b> button next to that Witness (as many as you like), then click <b>PUBLISH CHANGES</b> button, and <b>CONFIRM</b>.",
         "li_2": "To <b><i>remove</i></b> your vote from a Witness, click the <b>REMOVE</b> button next to that Witness, then click <b>PUBLISH CHANGES</b> button (enter password first time only), and <b>CONFIRM</b>."
       },
       "advisors": {
         "header": "Advisors",
-        "text_1": "This is where you vote for Peerplays Advisors. Advisors govern parameters such as specific fee rates on the Peerplays network (all changes require consensus vote by the advisors) in order to keep Peerplays flexible and competitive in changing market conditions.",
+        "text_1": "This is where you vote for UNI Advisors. Advisors govern parameters such as specific fee rates on the UNI network (all changes require consensus vote by the advisors) in order to keep UNI flexible and competitive in changing market conditions.",
         "li_1": "To vote for an Advisor, click the <b>ADD</b> button next to that Advisor (as many as you like), then click <b>PUBLISH CHANGES</b> button, and <b>CONFIRM</b>.",
         "li_2": "To <b><i>remove</i></b> your vote from an Advisor, click the <b>REMOVE</b> button next to that Advisor, then click <b>PUBLISH CHANGES</b> button (enter password first time only), and <b>CONFIRM</b>."
       }
@@ -778,15 +778,15 @@
       "note_1": "The Network page has three tabs: The Blockchain, Accounts, and Fee Schedule.",
       "blockchain": {
         "header": "The Blockchain",
-        "note": "This tab gives an overview of the state of the Peerplays blockchain including recent transactions."
+        "note": "This tab gives an overview of the state of the UNI blockchain including recent transactions."
       },
       "accounts": {
         "header": "Accounts",
-        "note": "The Accounts tab allows you to search for Peerplays accounts by Account Name."
+        "note": "The Accounts tab allows you to search for UNI accounts by Account Name."
       },
       "fee": {
         "header": "Fee Schedule",
-        "note": "Many transactions on the Peerplays blockchain (for example voting, sending funds, becoming a witness) have an associated fee. The Fee Schedule is shown here. All Fees are quoted in PPY."
+        "note": "Many transactions on the UNI blockchain (for example voting, sending funds, becoming a witness) have an associated fee. The Fee Schedule is shown here. All Fees are quoted in PPY."
       }
     },
     "settings": {
@@ -798,7 +798,7 @@
       },
       "claim": {
         "header": "Balance Claim",
-        "note": "This tab is where PPY token holders can claim their balances from the Peerplays genesis block."
+        "note": "This tab is where PPY token holders can claim their balances from the UNI genesis block."
       }
     },
     "help": {
@@ -807,7 +807,7 @@
     },
     "notifications": {
       "title": "NOTIFICATIONS",
-      "note": "This section notifies you when there is a new update of the Peerplays core wallet app. available for you to download."
+      "note": "This section notifies you when there is a new update of the UNI core wallet app. available for you to download."
     }
   }
 }
