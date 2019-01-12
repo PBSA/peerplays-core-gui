@@ -433,6 +433,13 @@
       "num_committee": "Desired Committee Members",
       "memo_key": "Memo Key",
       "common_options": "Common options"
+    },
+    "witness": {
+      "create": "created a witness",
+      "update": "updated their witness"
+    },
+    "member": {
+      "lifetime": "upgraded their account"
     }
   },
   "witnesses": {

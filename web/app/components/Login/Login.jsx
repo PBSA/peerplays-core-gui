@@ -30,6 +30,8 @@ import NavigateActions from "actions/NavigateActions";
 import LoginActions from "actions/LoginActions";
 import LanguageSwitcher from "../Common/LanguageSwitcher";
 import Translate from "react-translate-component";
+import AccessSettings from '../Settings/AccessSettings';
+import { Modal, ModalHeader, ModalClose, ModalTitle } from 'react-modal-bootstrap';
 
 @connect(
     (state) => {
@@ -48,6 +50,29 @@ import Translate from "react-translate-component";
     }
 )
 class Login extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showSettingsModal: false
+        };
+
+        this.hideModal = this.hideModal.bind(this);
+        this.showModal = this.showModal.bind(this);
+    }
+
+    showModal() {
+        this.setState({
+            showSettingsModal: true
+        });
+    }
+
+    hideModal() {
+        this.setState({
+            showSettingsModal: false
+        });
+    }
 
     handleSubmit(values) {
 
@@ -117,14 +142,28 @@ class Login extends React.Component {
                                 <div className="login__footerNoteWrap">
                                     <Translate component="p" unsafe={true} className="login__footerNote" content="login.sharedrop_note" />
                                 </div>
+                                <div className="login__settingsModal">
+                                    <p onClick={this.showModal}>Show Settings Modal</p>
+                                </div>
                             </div>
+
+                            <Modal
+                                className='settingsModal'
+                                isOpen={this.state.showSettingsModal}
+                                onRequestHide={this.hideModal}
+                            >
+                            <ModalHeader>
+                                <ModalClose onClick={this.hideModal}/>
+                                <ModalTitle>Change Active Connection</ModalTitle>
+                            </ModalHeader>
+                                <AccessSettings />
+                            </Modal>
                         </div>
                     </div>
                 </section>
             </div>
         );
     }
-
 }
 
 export default Login;

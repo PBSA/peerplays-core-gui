@@ -58,7 +58,7 @@ class AppSettingsActions {
                 payload: connection
             });
 
-            SettingsStorageService.set('changeConnection',  1);
+            SettingsStorageService.set('changeConnection', 1);
 
             window.location.reload();
 

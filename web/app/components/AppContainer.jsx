@@ -29,11 +29,9 @@
 /* Libs */
 import React from "react";
 import { connect } from 'react-redux';
-import { ChainStore } from "peerplaysjs-lib";
 
 /* Components */
 import {IntlProvider} from "react-intl";
-import Translate from "react-translate-component";
 
 import NotificationSystem from "react-notification-system";
 
@@ -47,10 +45,8 @@ import CantConnectModal from "components/Modal/CantConnectModal/CantConnectModal
 import HelpModal from "../components/Help/HelpModal";
 
 import intlData from "components/Utility/intlData";
-import Icon from "components/Icon/Icon";
 
 /* Other */
-import {listenChainStore} from 'services/ChainStoreService';
 import {routerShape} from "react-router/lib/PropTypes";
 
 @connect((state) => {

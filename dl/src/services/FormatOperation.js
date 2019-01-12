@@ -158,7 +158,7 @@ export function formatOperation(obj) {
             return {
                 operation: ops[op[0]],
                 type: counterpart.translate('transaction.trxTypes.account_update'),
-                sender: sender ? sender.get('name') : '',
+                sender: sender ? sender.get('name') : null,
                 receiver: null,
                 description: sender ?
                     counterpart.translate('activity.update_account', {account: sender.get('name')}) : ''
@@ -179,8 +179,8 @@ export function formatOperation(obj) {
                 operation: ops[op[0]],
                 type: counterpart.translate('transaction.trxTypes.account_upgrade'),
                 sender: sender ? sender.get('name') : '',
-                receiver: sender ? sender.get('name') : '',
-                description: op[1] && op[1]['upgrade_to_lifetime_member'] ? counterpart.translate('account.member.lifetime') : null
+                receiver: null,
+                description: op[1] && op[1]['upgrade_to_lifetime_member'] ? sender.get('name') + ' ' + counterpart.translate('account.member.lifetime') : null
             };
         case 9:
             return {
@@ -275,20 +275,22 @@ export function formatOperation(obj) {
                 description: null
             };
         case 20:
+            sender = ChainStore.getAccount(op[1].witness_account).get('name');
             return {
                 operation: ops[op[0]],
-                type: null,
-                sender: null,
+                type: counterpart.translate('transaction.trxTypes.witness_create'),
+                sender,
                 receiver: null,
-                description: null
+                description: sender + ' ' + counterpart.translate('account.witness.create')
             };
         case 21:
+            sender = ChainStore.getAccount(op[1].witness_account).get('name');
             return {
                 operation: ops[op[0]],
-                type: null,
-                sender: null,
+                type: counterpart.translate('transaction.trxTypes.witness_update'),
+                sender,
                 receiver: null,
-                description: null
+                description: sender + ' ' + counterpart.translate('account.witness.update')
             };
         case 22:
             sender = ChainStore.getAccount(op[1].fee_paying_account);

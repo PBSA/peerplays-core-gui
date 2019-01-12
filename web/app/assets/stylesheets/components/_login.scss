@@ -354,3 +354,41 @@
 		margin: 20px 0;
 	}
 }
+
+.login__settingsModal {
+	color: $black;
+	font-size: 1.25em;
+
+	&:hover {
+		cursor: pointer;
+		color: $color-second;
+	}
+}
+
+.settingsModal {
+	.tab__deployHead {
+		display: none;
+	}
+
+	.modal-header {
+		text-align: center;
+		font-size: 1.5em;
+		.modal-title {
+			padding-top: 10px;
+		}
+		
+		button {
+			position: absolute;
+			right: 10px;
+			background: transparent;
+			color: white;
+			span {
+				font-size: 3em;
+			}
+		}
+	}
+
+	.box-inner {
+		background: white;
+	}
+}
