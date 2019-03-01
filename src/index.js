@@ -1,39 +1,27 @@
-/**
- * Configure
- */
-// Adds a .equals method to Array for use in shouldComponentUpdate
-// This needs to be initalized here even though IntlStore is never used
 import IntlStore from 'stores/IntlStore'; // eslint-disable-line
 import store from 'store/configureStore';
 import CONFIG from 'config/main';
-/**
- * Libs
- */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, IndexRoute, IndexRedirect, hashHistory} from 'react-router';
-import {Provider} from 'react-redux';
-import {syncHistoryWithStore} from 'react-router-redux';
+import {
+	Router,
+	Route,
+	IndexRoute,
+	IndexRedirect,
+	hashHistory
+} from 'react-router';
+import {
+	Provider
+} from 'react-redux';
+import {
+	syncHistoryWithStore
+} from 'react-router-redux';
 import LocationConstants from 'constants/LocationConstants';
-
-/**
- * Actions
- */
 import AppActions from 'actions/AppActions';
-
-/**
- * Services
- */
 import AppService from 'services/AppService';
-
-/**
- * Wrappers
- */
-import {requireAuthentication} from './components/Auth/AuthenticatedComponent';
-
-/**
- * Routes Components
- */
+import {
+	requireAuthentication
+} from './components/Auth/AuthenticatedComponent';
 import AppContainer from './components/AppContainer';
 import BalancesDashboard from './components/Dashboard/Balances/BalancesContainer';
 import AdvancedOptionsDashboard from './components/Dashboard/AdvancedOptions/AdvancedOptions';
@@ -56,15 +44,15 @@ import Referrals from './components/Referrals/Referrals';
 import Empty from './components/Empty';
 import ClaimBtsContainer from './components/ClaimBts/ClaimBtsContainer';
 import AboutContainer from './components/About/AboutContainer';
+import RockPaperScissorsContainer from './components/Games/RockPaperScissors/RockPaperScissorsContainer'; /*eslint-disable-line */
+import RockPaperScissorsGame from './components/Games/RockPaperScissors/RockPaperScissorsGame';
 import ClaimSettings from './components/Settings/ClaimSettings';
 require('./components/Utility/Prototypes'); /*eslint-disable-line */
 
-/**
- * Init App
- */
+// Init App
 AppService.init(store);
 
-let routes = (
+const routes = (
   <Route path='/' component={ AppContainer }>
     <IndexRedirect to='/dashboard'/>
     <Route path='/login' component={ Login }/>
@@ -94,6 +82,53 @@ let routes = (
         }}
       />
     */}
+
+    <Route
+      path='/games/rock-paper-scissors'
+      onEnter={ () => {
+        store.dispatch(AppActions
+          .setCurrentLocation(LocationConstants.GAMES_ROCK_PAPER_SCISSOR_TOURNAMENTS));
+      } }
+      onLeave={ () => {
+        store.dispatch(AppActions.setCurrentLocation(null));
+      } }
+    >
+
+      <IndexRoute
+        params={ {tab: 'dashboard'} }
+        title='Dashboard'
+        component={ requireAuthentication(RockPaperScissorsContainer) }
+      />
+      <Route
+        path='explore/all'
+        params={ {tab: 'explore', tournamentsFilter: 'all'} }
+        title='Explore All'
+        component={ requireAuthentication(RockPaperScissorsContainer) }
+      />
+      <Route
+        path='explore/find'
+        params={ {tab: 'find', tournamentsFilter: 'find'} }
+        title='Find'
+        component={ requireAuthentication(RockPaperScissorsContainer) }
+      />
+      <Route
+        path='create'
+        params={ {tab: 'create'} }
+        title='Create'
+        component={ requireAuthentication(RockPaperScissorsContainer) }
+      />
+      <Route
+        path='dashboard'
+        params={ {tab: 'dashboard'} }
+        title='Dashboard Open'
+        component={ requireAuthentication(RockPaperScissorsContainer) }
+      />
+      <Route
+        path='game/:id'
+        title='Game'
+        component={ requireAuthentication(RockPaperScissorsGame) }
+      />
+    </Route>
     <Route path='explore'>
       <IndexRoute component={ requireAuthentication(AdvancedOptionsDashboard) }/>
       <Route
@@ -219,45 +254,14 @@ let routes = (
 ReactDOM.render(
   <Provider store={ store }>
     <Router history={ syncHistoryWithStore(hashHistory, store) } routes={ routes }/>
-  </Provider>, document.getElementById('content'));
+  </Provider>, document.getElementById('content')
+);
 
 window.onunhandledrejection = (data) => {
   console.log(data);
 };
 
 if (CONFIG.__ELECTRON__) {
-  let electron = window.require('electron');
-
-  const {remote} = electron;
-  const {Menu, MenuItem} = remote;
-
-  const menu = new Menu();
-  menu.append(
-    new MenuItem({
-      label: 'Copy',
-      click() {
-        document.execCommand('copy');
-      }
-    })
-  );
-  menu.append(
-    new MenuItem({
-      label: 'Paste',
-      click() {
-        document.execCommand('paste');
-      }
-    })
-  );
-
-  document.addEventListener(
-    'contextmenu',
-    (e) => {
-      e.preventDefault();
-      menu.popup({window: remote.getCurrentWindow()});
-    },
-    false
-  );
-
   let ipcRenderer = window.require('electron').ipcRenderer;
 
   ipcRenderer.on('window-will-close', () => {

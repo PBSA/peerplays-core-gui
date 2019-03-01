@@ -2,7 +2,7 @@
   "name": "peerplays-core-gui",
   "version": "0.4.0",
   "description": "Advanced wallet interface for graphene based blockchains (Bishares, Muse..)",
-  "homepage": "https://github.com/PBSA/peerplays-ui#readme",
+  "homepage": "./",
   "author": "Cryptonomex, Inc.",
   "license": "MIT",
   "bugs": {
@@ -17,29 +17,13 @@
     "url": "git://github.com/PBSA/peerplays-core-gui"
   },
   "scripts": {
-    "pre-release-s1": "rm -rf releases; rm -rf electron/releases; npm run electron; npm run postelectron;",
-    "pre-release-s2": "cd electron/node_modules/electron-prebuilt; rm -rf dist;",
-    "pre-release-all": "npm run pre-release-s1 && npm run pre-release-s2",
-    "post-release": "cp -a electron/releases/. releases; echo 'Release builds can be found in ./releases directory';",
-    "mac-r": "cd electron/node_modules/electron-prebuilt; npm_config_platform=darwin npm run postinstall; cd ../../; npm run release",
-    "win-r": "cd electron/node_modules/electron-prebuilt; npm_config_platform=win32 npm run postinstall; cd ../../; npm run release-windows",
-    "lin-r": "cd electron/node_modules/electron-prebuilt; npm_config_platform=linux npm run postinstall; cd ../../; npm run release-linux",
-    "pre-mwl-1": "npm run pre-release-s2; npm run mac-r",
-    "pre-mwl-2": "npm run pre-release-s2; npm run win-r",
-    "pre-mwl-3": "npm run pre-release-s2; npm run lin-r",
-    "mwl": "npm run pre-mwl-1 && npm run pre-mwl-2 && npm run pre-mwl-3",
-    "release-mac": "npm run pre-release-all && npm run mac-r && npm run post-release;",
-    "release-win": "npm run pre-release-all && npm run win-r && npm run post-release;",
-    "release-lin": "npm run pre-release-all && npm run lin-r && npm run post-release;",
-    "release-mwl": "npm run pre-release-s1 && npm run mwl && npm run post-release",
     "test-old": "./node_modules/.bin/mocha --compilers coffee:coffee-script,js:babel/register --require coffee-script/register",
     "test": "jest",
     "profile-dev": "webpack --config config/webpack.config.dev.js --profile --json > stats-dev.json",
     "debug": "node --inspect server.js",
     "start": "node server.js",
     "start-prod": "PROD=true node server.js",
-    "electron": "NODE_ENV=production webpack --config config/webpack.config.prod.js --progress --display-error-details --colors;",
-    "postelectron": " echo 'copying to electron/build..'; cp -r build/* electron/build/; echo 'done.'"
+    "build": "node scripts/build.js"
   },
   "directories": {
     "doc": "docs"
@@ -78,7 +62,6 @@
     "node-fetch": "^1.3.1",
     "numeral": "^2.0.6",
     "object-assign": "^4.0.1",
-    "openpgp": "^2.3.5",
     "peerjs": "^0.3.14",
     "peerplaysjs-lib": "git+ssh://git@github.com:PBSA/peerplaysjs-lib.git#PJL-10",
     "peerplaysjs-ws": "^0.1.9",
@@ -140,6 +123,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.22.0",
     "detect-port": "^1.3.0",
+    "dotenv": "^2.0.0",
     "electron-builder": "^14.1.1",
     "es6-promise": "^3.0.2",
     "eslint": "^5.10.0",
@@ -152,6 +136,7 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "fake-indexeddb": "^1.0.3",
     "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.24.0",
     "image-webpack-loader": "^3.0.0",
     "json-loader": "^0.5.3",
     "mocha": "^2.5.3",
@@ -182,6 +167,7 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.15.0",
     "webpack-dev-server": "^1.14.1",
+    "webpack-manifest-plugin": "^1.1.0",
     "worker-loader": "^0.6.0"
   },
   "jest": {

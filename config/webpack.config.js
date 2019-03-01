@@ -77,22 +77,14 @@ module.exports = function (options) {
 
     // PROD OUTPUT PATH
     outputPath = path.join(root_dir, 'build');
-
-    plugins.push(new CopyWebpackPlugin([{
-      from: path.resolve(root_dir, 'src/assets/openpgp'),
-      to: path.resolve(outputPath, 'openpgp')
-    },
-    {
-      from: path.resolve(root_dir, 'src/assets/createjs-2015.11.26.min.js'),
-      to: path.resolve(outputPath, 'createjs-2015.11.26.min.js')
-    },
-    ]));
   } else {
+
     plugins.push(new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development')
       }
     })),
+
     plugins.push(new webpack.HotModuleReplacementPlugin());
 
     if (options.ugly) {
@@ -127,7 +119,7 @@ module.exports = function (options) {
     devtool: options.prod ? 'cheap-module-source-map' : 'source-map',
     debug: !options.prod,
     module: {
-      noParse: /node_modules\/openpgp\/build\/openpgp.js/,
+      noParse: /node_modules\/build/,
       loaders: [{
         test: /\.jsx$/,
         include: [
@@ -229,9 +221,6 @@ module.exports = function (options) {
     remarkable: {
       preset: 'full',
       typographer: true
-    },
-    externals: {
-      'createjs': 'createjs'
     }
   };
 
