@@ -20,6 +20,11 @@ class ClaimBtsContainer extends React.Component {
     }, 0);
   }
 
+  onClickLogin(e) {
+    this.props.navigateToSignIn(null, false);
+    e.preventDefault();
+  }
+
   render() {
     let {status, errors} = this.props;
     let content = null;
@@ -100,6 +105,21 @@ class ClaimBtsContainer extends React.Component {
               >
                 <span className='btnText'>{counterpart.translate('auth.sign_up_btn')}</span>
               </button>
+              <div className='loginCreate__note4'>
+                <Translate
+                  component='span'
+                  content='sign_up.already_have_account'
+                />
+                <b>
+                  <a
+                    href='#login'
+                    onClick={ this.onClickLogin.bind(this) }
+                    className='mark2'
+                  >
+                    <Translate component='span' content='sign_up.login_link' />
+                  </a>
+                </b>
+              </div>
             </div>
           </div>
         );
@@ -126,6 +146,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => bindActionCreators(
   {
     navigateToSignUp: NavigateActions.navigateToSignUp,
+    navigateToSignIn : NavigateActions.navigateToSignIn,
     setStatus: ClaimBtsActions.setStatus,
     loginAccountFromBts: ClaimBtsActions.loginAccountFromBts,
   },
