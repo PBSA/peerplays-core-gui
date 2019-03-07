@@ -45,8 +45,6 @@ class CommonMessageActions {
 
         if (loc === MessageLocation.HEADER) {
           id = 'h' + id;
-        } else {
-          id = 's' + id;
         }
       }
 

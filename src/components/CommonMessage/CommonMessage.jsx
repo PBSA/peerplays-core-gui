@@ -6,16 +6,13 @@ import Config from '../../../config/Config';
 import MessageType from '../../constants/MessageTypes';
 import _ from 'lodash';
 import './CommonMessage.scss';
+import Immutable from 'immutable';
 
 const compileMessage = (props) => {
   let messageList;
 
   if (props.location === 'header') {
     messageList = props.headerMessages;
-  }
-
-  if (props.location === 'sideBar') {
-    messageList = props.sideBarMessages;
   }
 
   // Filter the message list to only show the number of messages configured.
@@ -27,19 +24,18 @@ const compileMessage = (props) => {
 
     return (
       <div
-        className={ 'c-common-message__background ' + messageType }
+        className={ 'cmn-msg__bkg cmn-msg__bkg--' + messageType }
         key={ key }
         id={ id }
       >
-        <div className='c-common-message__content'>
-          <span>{pair.get('content') }
-            <p onClick={ () => props.clearMessage(id) }>X</p>
-          </span>
+        <div className='cmn-msg__cont'>
+          <span className='cmn-msg__cont-txt'>{pair.get('content') }</span>
+          <p className='cmn-msg__cont-dismiss'onClick={ () => props.clearMessage(id) }>X</p>
         </div>
       </div>
     );
   });
-  return <div>{messages}</div>;
+  return messages;
 };
 
 class CommonMessage extends PureComponent {
@@ -50,43 +46,52 @@ class CommonMessage extends PureComponent {
       timeout: null
     };
 
+    this.timerList = Immutable.List();
     this.checkToAssignTimer = this.checkToAssignTimer.bind(this);
   }
 
-  setTimer(id) {
-    const {timeout} = this.state;
-    clearTimeout(timeout);
-
-    this.setState({
-      timeout: setTimeout(
+  // Only the most recent message has an associated timer.
+  // Other messages will not have a timer until they are shown.
+  setTimer(id, index) {
+    if (index === 0) {
+      this.timerList = this.timerList.push(setTimeout(
         this.props.clearMessage.bind(this, id), Config.commonMessageModule.timeout
-      )
-    });
+      ));
+    } else {
+      this.timerList.forEach((timer, index) => {
+        if (index !== this.timerList.size-1) {
+          clearTimeout(timer);
+        }
+      });
+
+    }
   }
 
   checkToAssignTimer(messages) {
-    messages.forEach((msg) => {
+    messages.forEach((msg, index) => {
       let msgType = msg.get('messageType');
 
       if (msgType === MessageType.SUCCESS || msgType === MessageType.INFO) {
-        this.setTimer(msg.get('id'));
+        this.setTimer(msg.get('id'), index);
       }
     });
   }
 
-  componentDidUpdate(prevProps) {
-    let propsMerged = this.props.headerMessages.concat(this.props.sideBarMessages);
-    let prevPropsMerged = prevProps.headerMessages.concat(prevProps.sideBarMessages);
 
+  componentDidUpdate(prevProps) {
     // Use lodash for a deep comparison of the merged messages.
-    if (!_.isEqual(propsMerged, prevPropsMerged)) {
-      this.checkToAssignTimer(propsMerged);
+    if (!_.isEqual(this.props.headerMessages, prevProps.headerMessages)) {
+      this.checkToAssignTimer(this.props.headerMessages);
     }
   }
-  
+
+  componentDidMount() {
+    this.checkToAssignTimer(this.props.headerMessages);
+  }
+
   render() {
     return (
-      <div>
+      <div className='cmn-msg'>
         {compileMessage(this.props)}
       </div>
     );
@@ -98,47 +103,34 @@ const mapStateToProps = (state) => {
 
   const messages = state.commonMessage;
   let headerMessages = messages.get('headerMessages');
-  let sideBarMessages = messages.get('sideBarMessages');
   const numOfCommonMessageToDisplay = Config.commonMessageModule.numOfCommonMessageToDisplay;
 
   if (reverse) {
     headerMessages = headerMessages.reverse();
-    sideBarMessages = sideBarMessages.reverse();
   }
 
   // Determine the number of messages for calculating the heigh offset needed.
   let numOfheaderMessages = headerMessages.size;
-  let numOfsideBarMessages = sideBarMessages.size;
 
   if (numOfheaderMessages > numOfCommonMessageToDisplay) {
     numOfheaderMessages = numOfCommonMessageToDisplay;
   }
 
-  if (numOfsideBarMessages > numOfCommonMessageToDisplay) {
-    numOfsideBarMessages = numOfCommonMessageToDisplay;
-  }
+  //Calculate the heights of the header child div and the betslip child div.
+  const messagingHeight = 35 * numOfheaderMessages;
+  const domLoaded = document.getElementsByClassName('main').length > 0 &&
+   document.getElementsByClassName('aside').length > 0;
 
-  //Calculate the heights of the exchange child div and the betslip child div.
-  const exchangeMessagingHeight = 36 * numOfheaderMessages;
+  if (domLoaded) {
+    // Add padding to the main.
+    document.getElementsByClassName('main')[0].style.paddingTop = messagingHeight + 'px';
 
-
-  // Dynamically apply a style to the split panes.
-  const messagingDivExist = document.getElementsByClassName('messaging').length > 0;
-
-  if (messagingDivExist) {
-    const messagingExchange = document.getElementsByClassName('messaging')[0]
-      .children[1].children[0];
-    
-    const messagingBetslip = document.getElementsByClassName('messaging')[0]
-      .children[1].children[2];
-
-    messagingExchange.style.height = 'calc(100% - ' + exchangeMessagingHeight + 'px)';
-    messagingBetslip.style.height = 'calc(100% - ' + exchangeMessagingHeight + 'px)';
+    // Due to the nature of the aside, we need to modify the top value.
+    document.getElementsByClassName('aside')[0].style.marginTop = messagingHeight + 'px';
   }
 
   return {
     headerMessages,
-    sideBarMessages,
     numOfCommonMessageToDisplay
   };
 };

@@ -8,8 +8,6 @@ import asset_utils from 'common/asset_utils';
 import AppActions from 'actions/AppActions';
 import SideVesting from './SideVesting';
 import {bindActionCreators} from 'redux';
-import CommonMessage from '../../CommonMessage';
-
 class Side extends React.Component {
 
   componentWillMount() {
@@ -25,10 +23,6 @@ class Side extends React.Component {
     this.props.navigateToDepositWithDraw();
   }
 
-  getTopMargin() {
-    return this.props.activeNotification ? '35px' : '0px';
-  }
-
   render() {
     let {
       availableBalances,
@@ -37,8 +31,7 @@ class Side extends React.Component {
     let availableKeys = Object.keys(availableBalances);
 
     return (
-      <aside className='aside' style={ {marginTop: this.getTopMargin()} }>
-        <CommonMessage location='sideBar' />
+      <aside className='aside'>
         <div className='nav__user dd dd-hover'>
           <div className='nav__userDDTrigger ddTrigger'>
             <div className='nav__userPic'>
@@ -119,7 +112,7 @@ const mapStateToProps = (state) => {
   return {
     account: state.app.account,
     availableBalances: state.dashboardPage.availableBalances,
-    activeNotification: state.commonMessage.get('activeMessage')
+    headerMessages: state.commonMessage.get('headerMessages'),
   };
 };
 

@@ -131,7 +131,7 @@ const mapStateToProps = (state) => {
     precision: dashboard.precision,
     decimals: dashboard.decimals,
     showHiddenAssets: dashboard.showHiddenAssets,
-    hiddenAssets: state.settings.hiddenAssets
+    hiddenAssets: state.settings.hiddenAssets,
   };
 };
 
@@ -142,7 +142,7 @@ const mapDispatchToProps = (dispatch) => bindActionCreators(
     toggleAssetHidden: DashboardPageActions.toggleAssetHidden,
     toggleShowHiddenAssets: DashboardPageActions.toggleShowHiddenAssets,
     navigateToSend: NavigateActions.navigateToSend,
-    navigateToDepositWithDraw: NavigateActions.navigateToDepositWithDraw
+    navigateToDepositWithDraw: NavigateActions.navigateToDepositWithDraw,
   },
   dispatch
 );

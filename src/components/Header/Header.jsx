@@ -100,7 +100,7 @@ const mapStateToProps = (state) => {
     currentAccount : state.account.currentAccount,
     starredAccounts : state.account.starredAccounts,
     locked : state.wallet.locked,
-    current_wallet : state.wallet.currentWallet
+    current_wallet : state.wallet.currentWallet,
   };
 };
 

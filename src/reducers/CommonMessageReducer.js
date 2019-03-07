@@ -4,7 +4,6 @@ import ActionTypes from '../constants/ActionTypes';
 let initialState = Immutable.fromJS({
   messageCount: 0,
   headerMessages: [],
-  sideBarMessages: [],
   activeMessage: false,
 });
 
@@ -32,25 +31,16 @@ export default function(state = initialState, action) {
       let messageCount = state.get('messageCount');
       const newMessageCount = messageCount > 0 ? --messageCount : 0; // cannot have negative count
       const id = action.id;
-      console.log('message count remove: ', messageCount);
       const activeMessage = newMessageCount === 0 ? false : true;
       const newHeaderMsgState = state.get('headerMessages')
         .filter((m) => {
           let mID = m.get('id');
 
-          // Filter exchange messages.
-          return mID === 'h' + id;
-        });
-      const newsideBarMessagestate = state.get('sideBarMessages')
-        .filter((m) => {
-          let mID = m.get('id');
-
-          // Filter betslip messages.
-          return mID === 's' + id;
+          //Filter exchange messages.
+          return mID !== id;
         });
 
       return state.set('headerMessages', newHeaderMsgState)
-        .set('sideBarMessages', newsideBarMessagestate)
         .set('messageCount', newMessageCount)
         .set('activeMessage', activeMessage);
     }
