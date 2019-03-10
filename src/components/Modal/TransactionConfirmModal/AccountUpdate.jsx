@@ -90,14 +90,6 @@ class AccountUpdate extends React.Component {
           : null
         }
         <div className='mConf__tableRow'>
-          <div className='mConf__tableLeft'>
-            <Translate content='account.options.common_options' />
-          </div>
-          <div className='mConf__tableRight'>
-            <span className='mark2'>
-              <Inspector data={ options } search={ false } />
-            </span>
-          </div>
         </div>
         <div className='mConf__tableRow'>
           <div className='mConf__tableLeft'><Translate content='transfer.fee' /></div>
